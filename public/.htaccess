@@ -1,0 +1,42 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ارسال همهٔ درخواست‌ها به index.php مگر فایل/پوشهٔ واقعی باشد
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# هدرهای امنیتی
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# جلوگیری از لیست شدن پوشه‌ها
+Options -Indexes
+
+# مسدودکردن اجرای PHP در پوشهٔ آپلودها
+<FilesMatch "\.(php|phtml|phar)$">
+    <If "%{REQUEST_URI} =~ m#^/uploads/#">
+        Require all denied
+    </If>
+</FilesMatch>
+
+# === UPLOAD LIMITS ===
+<IfModule mod_php.c>
+    php_value upload_max_filesize 20480M
+    php_value post_max_size 20480M
+    php_value memory_limit 1024M
+    php_value max_execution_time 7200
+    php_value max_input_time 7200
+</IfModule>
+<IfModule php_module>
+    php_value upload_max_filesize 20480M
+    php_value post_max_size 20480M
+    php_value memory_limit 1024M
+    php_value max_execution_time 7200
+    php_value max_input_time 7200
+</IfModule>

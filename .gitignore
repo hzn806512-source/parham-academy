@@ -1,0 +1,17 @@
+﻿# Environment & Secrets
+.env
+*.bak*
+*.backup
+*.log
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Storage Runtime & Cache
+storage/logs/*
+!storage/logs/.gitkeep
+storage/cache/*
+!storage/cache/.gitkeep
