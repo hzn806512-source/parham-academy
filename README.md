@@ -61,8 +61,6 @@
 
 ## 🏛️ System Architecture
 
-The application adopts the classical **Front-Controller MVC** pattern:
-
 ```text
 HTTP Request (Browser)
        │
@@ -86,9 +84,13 @@ HTTP Request (Browser)
        │
        ▼
 HTTP Response (HTML / Streamed Media)
-📂 Project Structure
-code
-Text
+```
+
+---
+
+## 📂 Project Structure
+
+```text
 parham-academy/
 ├── app/
 │   ├── bootstrap.php            # Core application bootstrapper & autoloader
@@ -112,39 +114,54 @@ parham-academy/
 │   └── cache/                   # Ephemeral cached fragments
 ├── .env.example                 # Environment variable template
 └── .gitignore                   # Comprehensive exclusion rules
-🚀 Installation & Local Setup
-1. Prerequisites
-PHP: Version 8.0 or higher with pdo_mysql and mbstring extensions enabled.
-Web Server: Apache with mod_rewrite enabled (e.g., XAMPP, WAMP, Laragon).
-Database Server: MySQL 5.7+ or MariaDB 10.3+.
-2. Clone the Repository
-code
-Bash
+```
+
+---
+
+## 🚀 Installation & Local Setup
+
+### 1. Prerequisites
+- **PHP:** Version 8.0 or higher with `pdo_mysql` and `mbstring` extensions enabled.
+- **Web Server:** Apache with `mod_rewrite` enabled (e.g., XAMPP, WAMP, Laragon).
+- **Database Server:** MySQL 5.7+ or MariaDB 10.3+.
+
+### 2. Clone the Repository
+```bash
 git clone https://github.com/hzn806512-source/parham-academy.git
 cd parham-academy
-3. Environment & Database Configuration
-Copy .env.example to .env (or configure app/config.php):
-code
-Bash
-cp .env.example .env
-Open phpMyAdmin or your MySQL CLI client and create a new database:
-code
-SQL
-CREATE DATABASE parham_academy CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-Import the database schema and sample records:
-code
-Bash
-mysql -u root -p parham_academy < database/parham_academy.sql
-Verify database credentials in app/config.php matching your local environment.
-4. Running the Application
-Point your Apache virtual host to the public/ directory, or place the project within xampp/htdocs/parham-academy and navigate to:
-code
-Text
-http://localhost/parham-academy/public
-🔒 Security Best Practices Implemented
-SQL Injection Neutralization: 100% of dynamic queries use PDO parameterized statements.
-XSS Mitigation: All user-supplied output is escaped via htmlspecialchars() before DOM interpolation.
-Session Hijacking Prevention: Regenerates session IDs upon login and enforces HttpOnly and SameSite flags.
-Media Protection: Dynamic session tokens prevent direct linking and bandwidth leeching of proprietary course files.
-📄 License
-This project is open-source under the MIT License.
+```
+
+### 3. Environment & Database Configuration
+1. Copy `.env.example` to `.env` (or configure `app/config.php`):
+   ```bash
+   cp .env.example .env
+   ```
+2. Open **phpMyAdmin** and create a new database:
+   ```sql
+   CREATE DATABASE parham_academy CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
+3. Import the database schema and sample records:
+   ```bash
+   mysql -u root -p parham_academy < database/parham_academy.sql
+   ```
+4. Verify database credentials in `app/config.php` matching your local environment.
+
+### 4. Running the Application
+- Place the project within `xampp/htdocs/parham-academy` and navigate to:
+  ```text
+  http://localhost/parham-academy/public
+  ```
+
+---
+
+## 🔒 Security Best Practices Implemented
+
+1. **SQL Injection Neutralization:** 100% of dynamic queries use PDO parameterized statements.
+2. **XSS Mitigation:** All user-supplied output is escaped via `htmlspecialchars()` before DOM interpolation.
+3. **Session Hijacking Prevention:** Regenerates session IDs upon login and enforces `HttpOnly` and `SameSite` flags.
+4. **Media Protection:** Dynamic session tokens prevent direct linking and bandwidth leeching of proprietary course files.
+
+---
+
+## 📄 License
+This project is open-source under the [MIT License](LICENSE).
