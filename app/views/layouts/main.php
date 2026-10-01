@@ -1,3 +1,4 @@
+﻿
 <?php
 /** @var string $content */
 /** @var string|null $title */
@@ -22,8 +23,8 @@ $path        = current_path();
         <a class="brand" href="<?= url('/') ?>">
             <span class="brand-mark">P</span>
             <span class="brand-text">
-                <strong><?= e(Config::get('app.name')) ?></strong>
-                <small><?= e(Config::get('app.tagline')) ?></small>
+                <strong>آکادمی پرهام</strong>
+                <small>آموزش تخصصی آرایشگری و گریم</small>
             </span>
         </a>
 

@@ -1637,3 +1637,179 @@ html[data-theme="light"] .pa-prompt-btn-cancel:hover {
     background: #f1f5f9;
     color: #0f172a !important;
 }
+
+
+/* ========================================================================
+   HEADER OVERHAUL — RESPONSIVE & LIGHT MODE FIX (PATCH)
+   ======================================================================== */
+
+/* استیکی ماندن قطعی و قرارگیری روی بالاترین لایه */
+.topbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+}
+
+/* اصلاح چیدمان در موبایل و تبلت */
+@media (max-width: 991.98px) {
+    .topbar-inner {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 8px 14px !important;
+        min-height: 58px !important;
+        gap: 8px !important;
+    }
+
+    .brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+    }
+
+    .brand-mark {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .brand-text {
+        display: flex !important;
+        flex-direction: column !important;
+        min-width: 0 !important;
+    }
+
+    .brand-text strong {
+        font-size: 0.92rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 160px !important;
+    }
+
+    /* مخفی شدن متن طولانی زیر لوگو در موبایل تا دکمه‌ها به بیرون پرتاب نشوند */
+    .brand-text small {
+        display: none !important;
+    }
+
+    .topbar-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+        margin-inline-start: auto !important;
+    }
+
+    .theme-toggle,
+    .nav-toggle {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+        border-radius: 10px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: var(--surface-2) !important;
+        border: 1px solid var(--line) !important;
+        color: var(--text) !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+    }
+
+    .nav-toggle-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    /* منوی افقی در موبایل بسته بماند چون سایدبار باز می‌شود */
+    .nav {
+        display: none !important;
+    }
+}
+
+/* اصلاح شفافیت و زیبایی هدر در حالت روز (Light Mode) */
+html[data-theme="light"] .topbar {
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid #e2ddd3 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+html[data-theme="light"] .brand strong {
+    color: #171511 !important;
+}
+
+html[data-theme="light"] .brand-mark {
+    background: linear-gradient(135deg, #dfbc77, #c8a061 60%, #9a7434) !important;
+    color: #171208 !important;
+    box-shadow: 0 3px 10px rgba(200, 160, 97, 0.3) !important;
+}
+
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .nav-toggle {
+    background: #f7f5ef !important;
+    border-color: #dfd9cb !important;
+    color: #171511 !important;
+}
+
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .nav-toggle:hover {
+    background: #ede8dc !important;
+    border-color: var(--red) !important;
+}
+
+html[data-theme="light"] .nav-toggle-icon {
+    color: #171511 !important;
+}
+
+/* سایدبار منوی موبایل در حالت روز */
+html[data-theme="light"] .sidebar-site {
+    background: #ffffff !important;
+    border-inline-start: 1px solid #e2ddd3 !important;
+    box-shadow: -6px 0 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .sidebar-link {
+    color: #555145 !important;
+}
+
+html[data-theme="light"] .sidebar-link:hover,
+html[data-theme="light"] .sidebar-link.is-active {
+    background: #f4f0e6 !important;
+    color: #171511 !important;
+}
+
+html[data-theme="light"] .sidebar-link.is-active .sidebar-icon {
+    color: #8d6a33 !important;
+}
+
+/* ========================================================================
+   FIX BRAND TEXT & RESTORE HAMBURGER BUTTON
+   ======================================================================== */
+.brand {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+}
+
+.brand-text strong {
+    max-width: none !important;
+    white-space: nowrap !important;
+}
+
+.topbar-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+}
+
+.nav-toggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}

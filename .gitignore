@@ -15,3 +15,6 @@ storage/logs/*
 !storage/logs/.gitkeep
 storage/cache/*
 !storage/cache/.gitkeep
+*رمز*.txt
+app/هاست/
+

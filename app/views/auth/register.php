@@ -6,7 +6,7 @@ unset($_SESSION['_old_username']);
     <div class="container auth-wrap">
         <div class="card auth-card reveal">
             <h1>ساخت حساب کاربری</h1>
-            <p class="muted">فقط نام کاربری و رمز عبور — بدون شماره تلفن و پیامک.</p>
+            <p class="muted">ثبت‌نام سریع با شماره موبایل و رمز عبور.</p>
 
             <form method="post" action="<?= url('/register') ?>" data-validate novalidate>
                 <?= csrf_field() ?>
@@ -20,7 +20,16 @@ unset($_SESSION['_old_username']);
                     <small class="field-error" data-error></small>
                 </div>
 
-                <div class="field">
+                                <div class="field">
+                    <label for="phone">شماره موبایل</label>
+                    <input id="phone" name="phone" type="text" inputmode="numeric" value="<?= e($_SESSION['_old_phone'] ?? '') ?>"
+                           dir="ltr" autocomplete="tel" required maxlength="11" placeholder="۰۹۱۲۳۴۵۶۷۸۹"
+                           pattern="09[0-9]{9}">
+                    <small class="field-hint">شماره موبایل ۱۱ رقمی معتبر با ۰۹</small>
+                    <small class="field-error" data-error></small>
+                </div>
+                <?php unset($_SESSION['_old_phone']); ?>
+<div class="field">
                     <label for="password">رمز عبور</label>
                     <div class="password-wrap">
                         <input id="password" name="password" type="password" dir="ltr"

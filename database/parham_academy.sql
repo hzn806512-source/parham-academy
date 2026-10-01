@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2026 at 08:42 PM
+-- Generation Time: Oct 01, 2026 at 10:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -285,6 +285,7 @@ CREATE TABLE `users` (
   `username` varchar(60) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `full_name` varchar(120) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `role` enum('user','admin') NOT NULL DEFAULT 'user',
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `is_logged_in` tinyint(1) NOT NULL DEFAULT 0,
@@ -298,9 +299,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password_hash`, `full_name`, `role`, `is_active`, `is_logged_in`, `note`, `last_login_at`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$9A.gKWkEf9Rw/mHk5u17NeaigD1peUKeRxageq/sKOjO8.y9.0ajO', 'مدیر آکادمی پرهام', 'admin', 1, 1, NULL, '2026-09-23 19:06:10', '2026-09-04 00:20:06', '2026-09-23 19:09:13'),
-(4, 'nima2', '$2y$10$Qc0dv2SziJJVWj9ou2Z9hOc3hnaS1heKAOFpvSaASXvf95GsS4vOq', NULL, 'user', 1, 0, NULL, '2026-09-06 21:52:39', '2026-09-06 09:41:00', '2026-09-06 22:04:04');
+INSERT INTO `users` (`id`, `username`, `password_hash`, `full_name`, `phone`, `role`, `is_active`, `is_logged_in`, `note`, `last_login_at`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '$2y$10$9A.gKWkEf9Rw/mHk5u17NeaigD1peUKeRxageq/sKOjO8.y9.0ajO', 'مدیر آکادمی پرهام', NULL, 'admin', 1, 1, NULL, '2026-09-23 19:06:10', '2026-09-04 00:20:06', '2026-10-01 11:37:54'),
+(4, 'nima2', '$2y$10$Qc0dv2SziJJVWj9ou2Z9hOc3hnaS1heKAOFpvSaASXvf95GsS4vOq', NULL, NULL, 'user', 1, 0, NULL, '2026-09-06 21:52:39', '2026-09-06 09:41:00', '2026-09-06 22:04:04');
 
 -- --------------------------------------------------------
 
@@ -386,6 +387,7 @@ ALTER TABLE `settings`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `uq_users_username` (`username`),
+  ADD UNIQUE KEY `uq_users_phone` (`phone`),
   ADD KEY `idx_users_role` (`role`),
   ADD KEY `idx_users_active` (`is_active`);
 

@@ -29,7 +29,122 @@ $homeUser = Auth::user();
   ]
 }
 </script>
+<style>
+<style>
+.hero-art {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.hero-art-frame {
+    position: relative;
+    width:550px;
+    height: 300px;
+    aspect-ratio: 16 / 9; 
+    max-width: 690px;          /* بزرگ‌تر شدن عکس به اندازه کاملاً متعادل */
+    margin-top: 100px;          /* پایین آمدن عکس (نه خیلی زیاد، نه کم) */
+    margin-right: -15px;
+    aspect-ratio: 16 / 9;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1px solid #e3ae43;
+    box-shadow: 0 10px 25px #dcaa4687;
+    background: #0d0d10;
+}
+
+/* حل قطعی ریسپانسیو در تبلت و موبایل */
+@media (max-width: 768px) {
+    .hero-art-frame {
+        width:456px;
+    height: 300px;
+        margin-top: 90px;      /* کم کردن فاصله خالی در موبایل */
+        margin-right: -20px;       /* جلوگیری قطعی از اسکرول افقی در گوشی */
+        border-radius: 24px;   /* گوشه‌های نرم‌تر برای کادر کوچک گوشی */
+    }
+}
+
+.hero-art-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* کپسول شیشه‌ای و بسیار ظریف - بدون اشغال فضای عکس */
+.hero-art-badge {
+    position: absolute;
+    bottom: 14px !important;
+    left: 14px !important;         /* سمت چپ: روی قفسه‌ها، نه روی آرایشگر */
+    top: auto !important;          /* رفع قطعی کش آمدن عمودی */
+    right: auto !important;
+    height: auto !important;       /* دقیقاً اندازه محتوا بدون فضای خالی */
+    width: auto !important;
+    max-width: calc(100% - 28px);
+    
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(12, 12, 15, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 50px;          /* فرم کپسولی مدرن */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+.hero-art-badge .badge-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    color: #e5b95f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-art-badge .badge-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.hero-art-badge .badge-tag {
+    font-size: 0.7rem;
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.12);
+    padding: 2px 7px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.hero-inner.has-art {
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+    .hero-art-badge {
+        bottom: 10px !important;
+        left: 10px !important;
+        padding: 5px 10px;
+    }
+    .hero-art-badge .badge-title {
+        font-size: 0.72rem;
+    }
+    .hero-art-badge .badge-tag {
+        font-size: 0.65rem;
+    }
+}
+</style>
+</style>
 <section class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="container hero-inner has-art">
@@ -58,13 +173,25 @@ $homeUser = Auth::user();
         </div>
 
         <div class="hero-art reveal">
-            <div class="hero-art-badge">آموزش حرفه‌ای آرایشگری و گریم با مدرک معتبر</div>
-            <div class="hero-art-frame">
-                <img data-fallback src="<?= asset('images/home/hero.jpg') ?>" alt="آموزش تخصصی آرایشگری در آکادمی پرهام" loading="lazy">
-                <div class="hero-art-placeholder" data-fallback-placeholder>آکادمی پرهام</div>
+    <div class="hero-art-frame">
+        <img
+            src="https://s7.uplod.ir/i/01230/3j8jmqsnzjn9.png"
+            alt="آموزش تخصصی آرایشگری در آکادمی پرهام"
+            loading="lazy"
+        >
+
+        <!-- کپسول ظریف و جمع‌وجور روی فضای خالی عکس -->
+        <div class="hero-art-badge">
+            <div class="badge-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
             </div>
+            <span class="badge-title">آموزش تخصصی آرایشگری و گریم</span>
+            <span class="badge-tag">مدرک بین‌المللی</span>
         </div>
     </div>
+</div>
 </section>
 
 <section class="section">
@@ -110,13 +237,13 @@ $homeUser = Auth::user();
         </div>
         <div class="gallery">
             <div class="gallery-item reveal">
-                <img data-fallback src="<?= asset('images/home/gallery-1.jpg') ?>" alt="فضای مجهز آموزش آرایشگری در آکادمی پرهام" loading="lazy">
-                <div class="gallery-item-placeholder" data-fallback-placeholder>آکادمی پرهام</div>
+                <img data-fallback src="https://s7.uplod.ir/i/01230/no6pqlp84b34.png" alt="فضای مجهز آموزش آرایشگری در آکادمی پرهام" loading="lazy">
+                <!-- <div class="gallery-item-placeholder" data-fallback-placeholder>آکادمی پرهام</div> -->
                 <span class="gallery-item-label">فضای مجهز آموزش</span>
             </div>
             <div class="gallery-item reveal">
-                <img data-fallback src="<?= asset('images/home/gallery-2.jpg') ?>" alt="سالن اختصاصی آموزش استایل و گریم مو" loading="lazy">
-                <div class="gallery-item-placeholder" data-fallback-placeholder>آکادمی پرهام</div>
+                <img data-fallback src="https://s7.uplod.ir/i/01230/ycn2w22xra0q.png" alt="سالن اختصاصی آموزش استایل و گریم مو" loading="lazy">
+                <!-- <div class="gallery-item-placeholder" data-fallback-placeholder>آکادمی پرهام</div> -->
                 <span class="gallery-item-label">سالن تخصصی گریم</span>
             </div>
         </div>

@@ -14,6 +14,8 @@ $router->get('/login',            [AuthController::class, 'showLogin']);
 $router->post('/login',           [AuthController::class, 'login']);
 $router->get('/register',         [AuthController::class, 'showRegister']);
 $router->post('/register',        [AuthController::class, 'register']);
+$router->get('/register/verify',  [AuthController::class, 'showVerifyOtp']);
+$router->post('/register/verify', [AuthController::class, 'verifyOtp']);
 $router->post('/logout',          [AuthController::class, 'logout']);
 $router->post('/api/auto-login',  [AuthController::class, 'autoLogin']);
 
