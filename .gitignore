@@ -1,20 +1,22 @@
-﻿# Environment & Secrets
+﻿# Environment & Configuration Secrets
 .env
+config.local.php
+
+# Backups and Editor Artifacts
 *.bak*
 *.backup
 *.log
-
-# OS & IDE
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 
-# Storage Runtime & Cache
+# Storage Runtime & Session Caches
 storage/logs/*
 !storage/logs/.gitkeep
 storage/cache/*
 !storage/cache/.gitkeep
-*رمز*.txt
-app/هاست/
 
+# Sensitive Credentials
+*رمز*.txt
+*هاست*

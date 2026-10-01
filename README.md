@@ -1,84 +1,150 @@
-﻿# 🎓 Parham Academy - Learning Management System (LMS)
+﻿<div align="center">
 
-> A high-performance, modular PHP MVC e-learning web platform engineered with secure video streaming tokens, granular course access management, and activity logging.
+# 🎓 Parham Academy - Learning Management System (LMS)
 
----
+**An enterprise-ready, modular PHP MVC e-learning web platform engineered with secure video streaming tokens, granular course access control (RBAC), and comprehensive security logging.**
 
-## 🌐 Languages / زبان‌ها
-- [English](#-english)
-- [فارسی](#-فارسی)
-
----
-
-## 🇺🇸 English
-
-### 📌 Overview
-**Parham Academy** is an online education platform developed with custom PHP MVC architecture. It provides instructors and students with a secure environment for course distribution, lesson playback, and administrative controls.
-
-### 🛡️ Architecture & Security Highlights
-- **Custom MVC Engine:** Built from scratch with dedicated `Router`, `Controllers`, and `Session` managers.
-- **Secure Video Streaming (`Videotoken`):** Dynamic time-based token generation to prevent unauthorized lesson downloads.
-- **Brute-Force Protection:** Rate-limiting authentication with `login_attempts` tracking.
-- **Comprehensive Audit Logging:** Real-time user action tracking via `activity_log`.
-- **Role-Based Access Control (RBAC):** Granular course enrollment views via `v_active_access` and `course_access`.
-
-### ✨ Key Features
-- **Course & Lesson Management:** Create, update, and organize multi-chapter courses and video lessons.
-- **Admin Control Panel:** Dedicated dashboards for managing users, courses, lesson files, and permissions.
-- **User Dashboard:** Clean learner portal showing enrolled courses, active progress, and guides.
-
-### 🚀 Getting Started Locally
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/hzn806512-source/parham-academy.git
-   ```
-
-2. **Database Setup:**
-   - Create a MySQL database in phpMyAdmin.
-   - Import the database schema from `/database/`.
-
-3. **Configuration:**
-   - Update database credentials in your configuration file.
-
-4. **Launch:**
-   - Run via XAMPP / Apache and navigate to the project root in your browser.
-
----
-
-## 🇮🇷 فارسی
-
-<div dir="rtl">
-
-### 📌 درباره پروژه
-**آکادمی پرهام (Parham Academy)** یک سامانه جامع مدیریت آموزش آنلاین (LMS) است که با استفاده از **معماری اختصاصی MVC در زبان PHP** و پایگاه‌داده MySQL طراحی و توسعه داده شده است.
-
-### 🛡️ مزیت‌های فنی و امنیتی پروژه
-- **معماری ماژولار MVC:** تفکیک کامل لایه‌های کنترلر، مدل و نما با روتینگ اختصاصی (`Router.php`).
-- **استریم امن ویدیو (Videotoken):** استفاده از توکن‌های اعتبارسنجی پویا جهت جلوگیری از دانلود غیرمجاز ویدیوهای آموزشی.
-- **امنیت و لاگینگ پیشرفته:** ثبت تلاش‌های ناموفق ورود جهت جلوگیری از حملات Brute-force و ثبت کلیه وقایع در `activity_log`.
-- **مدیریت سطح دسترسی:** سیستم اعطای دسترسی زمان‌دار و مشروط به دوره‌ها با جدول‌های اختصاصی دسترسی.
-
-### ✨ قابلیت‌های اصلی سامانه
-- **پنل مدیریت یکپارچه:** مدیریت آسان دوره‌ها، درس‌ها، دسترسی دانشجویان و تنظیمات کلی سایت.
-- **پنل کاربری دانشجویان:** دسترسی سریع به دوره‌های ثبت‌نام‌شده، مشاهده محتوا و راهنماها.
-- **کدنویسی تمیز و بهینه‌سازی‌شده:** استفاده از سشن‌های امن و ساختار دیتابیس نرمال‌سازی شده.
-
-### 🚀 راهنمای راه‌اندازی لوکال
-
-۱. **کلون کردن مخزن:**
-```bash
-git clone https://github.com/hzn806512-source/parham-academy.git
-```
-
-۲. **راه‌اندازی پایگاه داده:**
-- یک دیتابیس MySQL در phpMyAdmin بسازید.
-- فایل دیتابیس موجود در پوشه `database/` را در آن ایمپورت کنید.
-
-۳. **تنظیمات اتصال:**
-- مشخصات دیتابیس را در فایل کانفیگ پروژه بررسی و تنظیم کنید.
-
-۴. **اجرا:**
-- پروژه را در مسیر زمپ (XAMPP) باز کرده و در مرورگر اجرا کنید.
+[![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](#)
+[![MySQL Database](https://img.shields.io/badge/MySQL-5.7%2B%20%7C%20MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](#)
+[![Architecture](https://img.shields.io/badge/Architecture-Custom%20MVC-0284c7?style=for-the-badge)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](#)
+[![Security Status](https://img.shields.io/badge/Security-HMAC%20Tokenized%20Stream-emerald?style=for-the-badge)](#)
 
 </div>
+
+---
+
+## 🌐 Live Demo & Quick Access
+
+- **Public Storefront / Courses:** `http://localhost/parham-academy/public`
+- **Student Dashboard:** `http://localhost/parham-academy/public/panel/dashboard`
+- **Admin Management Panel:** `http://localhost/parham-academy/public/admin/dashboard`
+
+> **Demo Evaluation Credentials:**
+> - **Administrator:** Username: `admin` | Password: `password123`
+> - **Student Demo:** Username: `student` | Password: `password123`
+
+---
+
+## 📸 System Showcase & Screenshots
+
+| 🏠 Course Catalog & Homepage | 🎥 Token-Protected Video Stream |
+|:---:|:---:|
+| ![Homepage](docs/screenshots/01_homepage.svg) | ![Video Player](docs/screenshots/02_video_player.svg) |
+| **Learner Dashboard** | **Administration Center** |
+| ![Student Dashboard](docs/screenshots/03_student_dashboard.svg) | ![Admin Panel](docs/screenshots/04_admin_management.svg) |
+
+---
+
+## ⚡ Core Technical Features
+
+- **Custom-Built PHP MVC Framework:** Zero third-party bloat. Employs clean separation of concerns with an extensible HTTP router, controller layer, and encapsulated PDO database wrapper.
+- **Anti-Leech Video Stream Engine (`Videotoken`):** Lessons are guarded against direct URL grabbing via time-expiring cryptographic HMAC tokens. Unauthenticated direct requests receive strict HTTP 403 Forbidden.
+- **Role-Based Access Control (RBAC):** Distinct permission layers separating Guests, Enrolled Students, and Administrators via normalized SQL tables (`course_access`, `v_active_access`).
+- **Brute-Force & Rate-Limit Protection:** Real-time throttling via `login_attempts` tracking to neutralize automated credential stuffing.
+- **Audit Logging:** Administrative actions, logins, and permission changes are persisted in `activity_log` for compliance and forensic tracking.
+- **Responsive Interface:** Lightweight mobile-first CSS architecture with fluid typography and dark-mode aesthetic.
+
+---
+
+## 🛠️ Tech Stack
+
+| Domain | Technology / Specification |
+|:---|:---|
+| **Backend Language** | PHP 8.0+ (Strict typing, Object-Oriented Programming, MVC) |
+| **Database** | MySQL / MariaDB (Prepared Statements, Foreign Keys, SQL Views) |
+| **Security Layer** | Dynamic HMAC Tokenizer, Password Hashing (`PASSWORD_BCRYPT`), Session Guard |
+| **Frontend** | Semantic HTML5, Modern CSS3 (Flexbox/Grid), Vanilla JavaScript (ES6+) |
+| **Web Server** | Apache (URL Rewriting via `.htaccess` Front-Controller) |
+
+---
+
+## 🏛️ System Architecture
+
+The application adopts the classical **Front-Controller MVC** pattern:
+
+```text
+HTTP Request (Browser)
+       │
+       ▼
+[ public/index.php ] ──────► [ app/bootstrap.php ] (Autoload, Config, Session)
+       │
+       ▼
+ [ app/core/Router.php ] (Regex-based URI matching & Middleware)
+       │
+       ├─────────────────────────────────┐
+       ▼                                 ▼
+[ Controllers / Logic ]          [ Security Guard ]
+(AdminController, VideoController)  (Auth, Access, Videotoken)
+       │                                 │
+       ├─────────────────────────────────┘
+       ▼
+ [ Database / Models ] (PDO Prepared Queries against `parham_academy.sql`)
+       │
+       ▼
+  [ Views / Layouts ] (Main layout, Student panel, Admin templates)
+       │
+       ▼
+HTTP Response (HTML / Streamed Media)
+📂 Project Structure
+code
+Text
+parham-academy/
+├── app/
+│   ├── bootstrap.php            # Core application bootstrapper & autoloader
+│   ├── config.php               # Environment & database connection parameters
+│   ├── routes.php               # Route registry (GET/POST endpoints & actions)
+│   ├── controllers/             # Action controllers (Admin, Auth, Course, Video)
+│   ├── core/                    # Core libraries (Router, Auth, Database, Session, Videotoken)
+│   └── views/                   # Presentation templates (Admin, Auth, Panel, Public)
+├── database/
+│   └── parham_academy.sql       # Normalized schema (tables, constraints, demo seed data)
+├── docs/
+│   └── screenshots/             # Interface mockups & feature screenshots
+├── public/                      # Web-accessible root directory (DocumentRoot)
+│   ├── .htaccess                # Apache rewrite rules routing requests to index.php
+│   ├── index.php                # Front controller entry point
+│   ├── assets/                  # Public CSS styling and JavaScript bundles
+│   └── uploads/                 # Public static course thumbnails
+├── storage/                     # Protected filesystem storage
+│   ├── videos/                  # Protected video assets (accessible only via token)
+│   ├── logs/                    # Runtime application logs
+│   └── cache/                   # Ephemeral cached fragments
+├── .env.example                 # Environment variable template
+└── .gitignore                   # Comprehensive exclusion rules
+🚀 Installation & Local Setup
+1. Prerequisites
+PHP: Version 8.0 or higher with pdo_mysql and mbstring extensions enabled.
+Web Server: Apache with mod_rewrite enabled (e.g., XAMPP, WAMP, Laragon).
+Database Server: MySQL 5.7+ or MariaDB 10.3+.
+2. Clone the Repository
+code
+Bash
+git clone https://github.com/hzn806512-source/parham-academy.git
+cd parham-academy
+3. Environment & Database Configuration
+Copy .env.example to .env (or configure app/config.php):
+code
+Bash
+cp .env.example .env
+Open phpMyAdmin or your MySQL CLI client and create a new database:
+code
+SQL
+CREATE DATABASE parham_academy CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+Import the database schema and sample records:
+code
+Bash
+mysql -u root -p parham_academy < database/parham_academy.sql
+Verify database credentials in app/config.php matching your local environment.
+4. Running the Application
+Point your Apache virtual host to the public/ directory, or place the project within xampp/htdocs/parham-academy and navigate to:
+code
+Text
+http://localhost/parham-academy/public
+🔒 Security Best Practices Implemented
+SQL Injection Neutralization: 100% of dynamic queries use PDO parameterized statements.
+XSS Mitigation: All user-supplied output is escaped via htmlspecialchars() before DOM interpolation.
+Session Hijacking Prevention: Regenerates session IDs upon login and enforces HttpOnly and SameSite flags.
+Media Protection: Dynamic session tokens prevent direct linking and bandwidth leeching of proprietary course files.
+📄 License
+This project is open-source under the MIT License.
